@@ -25,7 +25,6 @@ public class FirstNPrimeSum {
         long sum = 0;
         for (int number = 2; count > 0; number++) {
             if (isPrime(number)) {
-                System.out.println(number);
                 count--;
                 sum += number;
             }
