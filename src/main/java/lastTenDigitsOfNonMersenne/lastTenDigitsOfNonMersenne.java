@@ -37,7 +37,7 @@ public class lastTenDigitsOfNonMersenne {
                 .add(BigInteger.ONE);
 
         IntStream.of(
-                lastDigitsOfBigInteger(nonMarsenne,10)
+                lastDigitsOfBigInteger(nonMarsenne, 10)
                 )
                 .forEach(System.out::print);
     }
