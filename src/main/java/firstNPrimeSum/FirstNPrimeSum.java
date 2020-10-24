@@ -10,14 +10,12 @@ public class FirstNPrimeSum {
     private boolean isPrime(int number) {
         if (number > 1) {
             int half = number / 2;
-            boolean div = false;
             for (int i = 2; i <= half; i++) {
                 if (number % i == 0) {
-                    div = true;
-                    break;
+                    return false;
                 }
             }
-            return !div;
+            return true;
         }
         return false;
     }
