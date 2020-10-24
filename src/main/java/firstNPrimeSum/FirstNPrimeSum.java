@@ -5,44 +5,51 @@ import java.util.Scanner;
 
 public class FirstNPrimeSum {
 
-    public static final Scanner SCANNER = new Scanner(System.in);
+    private static final Scanner SCANNER = new Scanner(System.in);
 
-    public static boolean isPrime(int number) {
+    private boolean isPrime(int number) {
         if (number > 1) {
-            int half = number / 2, div = 0;
+            int half = number / 2;
+            boolean div = false;
             for (int i = 2; i <= half; i++) {
                 if (number % i == 0) {
-                    div = 1;
+                    div = true;
                     break;
                 }
             }
-            return div == 0;
+            return !div;
         }
         return false;
     }
 
-    public static long firstNPrimeSum(int count) {
+    private long firstNPrimeSum(int primeCount) {
         long sum = 0;
-        for (int number = 2; count > 0; number++) {
-            if (isPrime(number)) {
-                count--;
-                sum += number;
+        if (primeCount > 0) {
+            sum = 2;
+            for (int number = 3; primeCount > 1; number += 2) {
+                if (isPrime(number)) {
+                    primeCount--;
+                    sum += number;
+                }
             }
         }
         return sum;
     }
 
     public static void main(String[] args) {
+        FirstNPrimeSum primeCalculator = new FirstNPrimeSum();
+
         System.out.print("Hello! I calculate the sum of the first n prime numbers.\n" +
                 "Please enter an integer between one and a million: ");
+
         try {
-            int count = SCANNER.nextInt();
-            if (count < 0 || count > 1000000) {
+            int primeCount = SCANNER.nextInt();
+            if (primeCount < 0 || primeCount > 1000000) {
                 System.out.println("Your input cannot be negative or greater than one million. Bye!");
             } else {
                 System.out.println("Calculating. Please wait...");
-                System.out.print("The sum of the first " + count +
-                        " prime numbers is " + firstNPrimeSum(count) + ". Goodbye!");
+                System.out.print("The sum of the first " + primeCount +
+                        " prime numbers is " + primeCalculator.firstNPrimeSum(primeCount) + ". Goodbye!");
             }
         } catch (InputMismatchException exception) {
             System.out.println("Your input must be integer. Bye!");

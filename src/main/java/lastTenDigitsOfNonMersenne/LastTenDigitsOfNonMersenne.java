@@ -3,7 +3,7 @@ package lastTenDigitsOfNonMersenne;
 import java.math.BigInteger;
 import java.util.stream.IntStream;
 
-public class lastTenDigitsOfNonMersenne {
+public class LastTenDigitsOfNonMersenne {
 
     static int[] lastDigitsOfBigInteger(BigInteger nonMarsenne, int lastDigitsNo) {
 

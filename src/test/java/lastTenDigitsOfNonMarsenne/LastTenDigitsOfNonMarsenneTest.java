@@ -1,13 +1,13 @@
-package firstNPrimeSum;
-
-import static org.junit.Assert.assertTrue;
+package lastTenDigitsOfNonMarsenne;
 
 import org.junit.Test;
+
+import static org.junit.Assert.assertTrue;
 
 /**
  * Unit test for simple firstNPrimeSum.FirstNPrimeSum.
  */
-public class FirstNPrimeSumTest
+public class LastTenDigitsOfNonMarsenneTest
 {
     /**
      * Rigorous Test :-)
