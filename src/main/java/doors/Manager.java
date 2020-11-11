@@ -8,28 +8,33 @@ class Manager {
     private List<Door> doors = new ArrayList<>();
 
     Manager(int doors) {
+        // giving the manager a number of initially closed doors
         for (int i = 0; i < doors; i++) {
             this.doors.add(new Door(true));
         }
     }
 
     void work() {
-        int distance = 0;
-        for (int i = 0; i < doors.size(); i++) {
-            for (int j = distance; j < doors.size(); j = j + 1 + distance) {
-                if (doors.get(j).isClosed()) {
-                    doors.get(j).open();
-                } else doors.get(j).close();
+        // increasing the distance between doors
+        for (int distance = 0; distance < doors.size(); distance++) {
+
+            // jumping to doors of this distance
+            for (int doorNr = distance; doorNr < doors.size(); doorNr = doorNr + 1 + distance) {
+
+                if (doors.get(doorNr).isClosed()) {
+                    doors.get(doorNr).open();
+                } else doors.get(doorNr).close();
             }
-            distance++;
         }
     }
 
     void doorsStatus() {
-        System.out.println("Doors left open: ");
+        System.out.println("Doors still open: ");
         for (int i = 0; i < doors.size(); i++) {
+
+            // print each open door number (not the index)
             if (!doors.get(i).isClosed()) {
-                System.out.print(i+1 + " ");
+                System.out.print(i + 1 + ". ");
             }
         }
     }
